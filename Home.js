@@ -146,7 +146,7 @@ app.get('/orderlist',(req,res) => {
 
 
 //Database connectivity
-MongoClint.connect(mongourl,(err,client) => {
+MongoClint.connect(mongourl,{useNewUrlParser:true}(err,client) => {
     if(err) console.log(err);
     db = client.db('Zomato')             
     app.listen(port,(err) => {
