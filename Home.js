@@ -3,9 +3,8 @@ const app = express();
 const port = 8900;
 const mongo = require('mongodb');
 const MongoClint = mongo.MongoClient;
-const mongourl = "mongodb://localhost:27017";
+const mongourl = "mongodb+srv://USERS:mongodb825102@cluster0.eyd0p.mongodb.net/Zomato?retryWrites=true&w=majority";
 let db;
-let coll_name = "restaurant"  //This contain data of restaurantdata.
 const cors = require('cors');
 const bodyParser = require('body-Parser');
 app.use(cors());
@@ -90,15 +89,6 @@ app.get('/restaurantlist/:city/:mealtype',(req,res) => {
     })
 })
 
-//***********Filtering restaurant data on the basis of city name************//
-app.get('/Pune',(req,res) => {
-    query={"city_name":"Pune"}
-    db.collection(coll_name).find(query).toArray((err,result) =>{
-        if(err) throw err;
-        res.send(result)
-    })
-})
-
 //city data
 app.get('/location',(req,res) => {
     db.collection('city').find().toArray((err,result) =>{
@@ -158,7 +148,7 @@ app.get('/orderlist',(req,res) => {
 //Database connectivity
 MongoClint.connect(mongourl,(err,client) => {
     if(err) console.log(err);
-    db = client.db('project')             //collection name and db name is same.
+    db = client.db('Zomato')             
     app.listen(port,(err) => {
         if(err) throw err;
         console.log(`Server is running on port ${port}`)
