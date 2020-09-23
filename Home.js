@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8900;
+const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClint = mongo.MongoClient;
 const mongourl = "mongodb+srv://USERS:mongodb825102@cluster0.eyd0p.mongodb.net/Zomato?retryWrites=true&w=majority";
