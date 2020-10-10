@@ -12,7 +12,7 @@ app.use(cors());
 
 //Sample output
 app.get('/',(req,res) =>{
-    res.status(200).send("This is homepage")
+    res.status(200).send("The API is Working")
     
 })
 
